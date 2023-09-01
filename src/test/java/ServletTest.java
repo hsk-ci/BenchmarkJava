@@ -43,4 +43,24 @@ public class ServletTest {
                                 java.net.URLDecoder.decode(
                                         this.cookieCaptor.getValue().getValue(), "UTF-8")));
     }
+
+    @Test
+    public void benchmark00001_post() throws Exception {
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        HttpServletResponse response = mock(HttpServletResponse.class);
+
+        Cookie cookie = new Cookie("BenchmarkTest00001", "FileName");
+        Cookie[] cookies = new Cookie[1];
+        cookies[0] = cookie;
+        when(request.getCookies()).thenReturn(cookies);
+
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new PrintWriter(stringWriter);
+        when(response.getWriter()).thenReturn(writer);
+
+        this.servlet.doPost(request, response);
+
+        writer.flush(); // it may not have been flushed yet...
+        assertTrue(stringWriter.toString().contains("The beginning of file:"));
+    }
 }
