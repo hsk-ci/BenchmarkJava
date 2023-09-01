@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import org.mockito.stubbing.*;
-import org.owasp.benchmark.helpers.DatabaseHelper;
 import org.owasp.benchmark.testcode.BenchmarkTest00008;
 
 public class ServletSQLTest {
