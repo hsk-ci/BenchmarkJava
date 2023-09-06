@@ -647,6 +647,15 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <!-- <version>2.7.1</version> 2.6.0+ requires Java 11. -->
+            <version>2.5.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
 
         <!-- original dependencies start below -->
         <dependency>
